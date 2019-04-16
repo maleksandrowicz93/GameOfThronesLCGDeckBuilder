@@ -6,6 +6,7 @@ import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.Registratio
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,15 +19,17 @@ public class UserService {
     private static final Logger loger = LoggerFactory.getLogger(UserService.class);
 
     private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Transactional
     public void registerUser(RegistrationFormDTO form) {
         User user = Converters.convertToUser(form);
-
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         loger.info("rejestracja użytkownika " + user);
         userRepository.save(user);
         loger.info("Zarejestrowany użytkownik: " + user);
