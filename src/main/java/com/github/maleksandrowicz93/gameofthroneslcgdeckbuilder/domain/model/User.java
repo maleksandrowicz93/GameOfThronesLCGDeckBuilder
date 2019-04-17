@@ -3,6 +3,8 @@ package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.domain.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +27,9 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+
+    @OneToMany(mappedBy = "user")
+    List<Deck> decks = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
