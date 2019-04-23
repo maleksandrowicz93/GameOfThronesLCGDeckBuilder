@@ -20,7 +20,12 @@ public class HomePageController {
     @GetMapping("/user")
     @ResponseBody
     public UserDTO prepareHomePage(Principal principal) {
-        UserDTO user = service.findUser(principal.getName());
-        return user;
+        return service.findUser(principal.getName());
     }
+
+    @GetMapping("/")
+    public String displayHomePage() {
+        return "home-page";
+    }
+
 }
