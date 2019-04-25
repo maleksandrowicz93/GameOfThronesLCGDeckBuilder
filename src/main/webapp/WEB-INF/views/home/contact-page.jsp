@@ -8,6 +8,8 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+
 <br/><br/>
 <h2><span id="about-header">Skontaktuj się z nami!</span></h2>
 
@@ -17,5 +19,6 @@
     <p>contact@contact.mail.pl</p>
 </div>
 
+</section>
 </body>
 </html>

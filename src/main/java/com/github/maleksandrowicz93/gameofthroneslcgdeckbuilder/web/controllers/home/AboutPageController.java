@@ -1,4 +1,4 @@
-package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers;
+package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ public class AboutPageController {
 
     @GetMapping
     public String displayAboutPage() {
-        return "about-page";
+        return "home/about-page";
     }
 
 }

@@ -8,6 +8,8 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+
 <br/><br/>
 <h2><span id="about-header">Gra o Tron LCG Deckbuilder</span></h2>
 
@@ -20,5 +22,6 @@
     </p>
 </div>
 
+</section>
 </body>
 </html>

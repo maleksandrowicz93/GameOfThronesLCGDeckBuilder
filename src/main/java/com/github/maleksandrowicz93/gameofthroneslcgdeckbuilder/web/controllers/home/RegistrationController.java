@@ -1,4 +1,4 @@
-package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers;
+package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers.home;
 
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.RegistrationFormDTO;
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.UserDTO;
@@ -26,13 +26,13 @@ public class RegistrationController {
     @GetMapping
     public String prepareRegistrationForm(Model model) {
         model.addAttribute("registrationForm", new RegistrationFormDTO());
-        return "registration-page";
+        return "home/registration-page";
     }
 
     @PostMapping
     public String processRegistration(@Valid @ModelAttribute("registrationForm") RegistrationFormDTO form, BindingResult result) {
         if (result.hasErrors()) {
-            return "registration-page";
+            return "home/registration-page";
         }
         if (checkPasswordEquality(form)) {
             result.rejectValue("password", null, "Hasło i powtórzone hasło są niezgodne");
@@ -49,7 +49,6 @@ public class RegistrationController {
     }
 
     private boolean checkIsUserNameAvailable(RegistrationFormDTO form) {
-        //TODO
         UserDTO user = userService.findUser(form.getUsername());
         return user == null;
     }

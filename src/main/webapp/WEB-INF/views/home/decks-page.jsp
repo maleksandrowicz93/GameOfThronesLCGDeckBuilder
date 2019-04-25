@@ -8,8 +8,11 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+
 <br/><br/>
 <h2><span id="about-header">Talie naszych użytkowników:</span></h2>
 
+</section>
 </body>
 </html>

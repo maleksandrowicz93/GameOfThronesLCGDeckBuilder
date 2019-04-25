@@ -1,4 +1,4 @@
-package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers;
+package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers.home;
 
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.UserDTO;
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.services.UserService;
@@ -17,15 +17,15 @@ public class HomePageController {
         this.service = service;
     }
 
-    @GetMapping("/user")
-    @ResponseBody
-    public UserDTO prepareHomePage(Principal principal) {
-        return service.findUser(principal.getName());
-    }
+//    @GetMapping("/user")
+//    @ResponseBody
+//    public UserDTO prepareHomePage(Principal principal) {
+//        return service.findUser(principal.getName());
+//    }
 
     @GetMapping("/")
     public String displayHomePage() {
-        return "home-page";
+        return "home/home-page";
     }
 
 }

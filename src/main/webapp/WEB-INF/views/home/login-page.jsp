@@ -9,6 +9,8 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+
 <br/><br/>
 <h2><span id="reg-form-header">Formularz logowania</span></h2>
 
@@ -36,5 +38,6 @@
     </div>
 
 </form>
+</section>
 </body>
 </html>

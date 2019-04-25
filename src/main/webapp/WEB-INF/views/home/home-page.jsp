@@ -8,5 +8,7 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+</section>
 </body>
 </html>

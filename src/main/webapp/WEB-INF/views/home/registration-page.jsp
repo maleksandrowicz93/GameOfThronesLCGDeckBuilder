@@ -10,6 +10,8 @@
 
 <jsp:include page="home-header.jsp"/>
 
+<section>
+
 <br/><br/>
 <h2><span id="reg-form-header">Formularz rejestracji</span></h2>
 
@@ -30,5 +32,6 @@
     <button type="submit" class="btn btn-primary" id="reg-form-button">Zarejestruj</button>
 </form:form>
 
+</section>
 </body>
 </html>

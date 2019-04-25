@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private static final Logger loger = LoggerFactory.getLogger(UserService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
@@ -30,9 +30,9 @@ public class UserService {
     public void registerUser(RegistrationFormDTO form) {
         User user = Converters.convertToUser(form);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        loger.info("rejestracja użytkownika " + user);
+        logger.info("rejestracja użytkownika " + user);
         userRepository.save(user);
-        loger.info("Zarejestrowany użytkownik: " + user);
+        logger.info("Zarejestrowany użytkownik: " + user);
     }
 
     public UserDTO findUser(String username) {
@@ -42,10 +42,10 @@ public class UserService {
         Optional<User> optionalUser = userRepository.findByUsername(username);
         User user = optionalUser.orElse(null);
         if (user == null) {
-            loger.debug("Nie znaleziono użytkownika dla nazwy '" + username + "'");
+            logger.debug("Nie znaleziono użytkownika dla nazwy '" + username + "'");
             return null;
         }
-        loger.debug("Znaleziono użytkownika dla nazwy '" + username + "' : " + user);
+        logger.debug("Znaleziono użytkownika dla nazwy '" + username + "' : " + user);
         return Converters.convertToUserDTO(user);
     }
 }

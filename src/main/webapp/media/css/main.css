@@ -6,6 +6,15 @@ body {
 
 header {
     width: 100vw;
+    display: block;
+}
+
+div.page-cols {
+    display: flex;
+}
+
+div.structure-col {
+    color: white;
 }
 
 ul.nav {
@@ -47,4 +56,8 @@ div.app-description {
     color: white;
     float: contour;
     width: 50vw;
+}
+
+h2 {
+    color: white;
 }

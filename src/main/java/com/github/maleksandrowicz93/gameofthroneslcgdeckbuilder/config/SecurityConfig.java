@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/WEB-INF/views/home-page.jsp")
+                .defaultSuccessUrl("/user/manager", true)
                 .and()
             .logout()
                 .logoutUrl("/logout")
