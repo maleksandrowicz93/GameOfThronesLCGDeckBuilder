@@ -26,6 +26,8 @@ public class Card {
     @Column(nullable = false)
     private boolean isUnique;
     @Column(nullable = false)
+    private boolean isLoyal;
+    @Column(nullable = false)
     private String faction;
     @Column(nullable = false)
     private int cost;
@@ -35,18 +37,18 @@ public class Card {
     @Column(nullable = false)
     private int deckLimit;
 
-    @ElementCollection
-    private Set<Icon> icons = new HashSet<>();
-
-    @ElementCollection
-    private Set<PlotStat> plotStats = new HashSet<>();
-
-    @ElementCollection
-    @Column(name = "trait")
-    private Set<String> traits = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "set_id", nullable = false)
     private CardSet cardSet;
+
+//    @ElementCollection(targetClass = Icons.class)
+    private Icons icons;
+
+//    @ElementCollection(targetClass = PlotStats.class)
+    private PlotStats plotStats;
+
+    @ElementCollection
+    @Column(name = "trait")
+    private List<String> traits = new ArrayList<>();
 
 }

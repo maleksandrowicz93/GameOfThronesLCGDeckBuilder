@@ -1,5 +1,6 @@
 package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.services;
 
+import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.domain.model.Deck;
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.domain.model.User;
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.domain.repositories.UserRepository;
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.RegistrationFormDTO;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -47,5 +49,13 @@ public class UserService {
         }
         logger.debug("Znaleziono użytkownika dla nazwy '" + username + "' : " + user);
         return Converters.convertToUserDTO(user);
+    }
+
+    public Deck lastAddedDeck(User user) {
+        List<Deck> decks = user.getDecks();
+        if (decks.size() == 0) {
+            return null;
+        }
+        return decks.get(decks.size()-1);
     }
 }

@@ -11,11 +11,15 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlotStat {
+public class PlotStats {
 
     @Column(nullable = false)
-    private String name;
+    private Integer income;
     @Column(nullable = false)
-    private int value;
+    private Integer initiative;
+    @Column(nullable = false)
+    private Integer claim;
+    @Column(nullable = false)
+    private Integer reserve;
 
 }

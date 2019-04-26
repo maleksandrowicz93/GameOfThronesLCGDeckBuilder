@@ -11,11 +11,13 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Icon {
+public class Icons {
 
     @Column(nullable = false)
-    private String name;
+    private boolean military;
     @Column(nullable = false)
-    private boolean isOwned;
+    private boolean intrigue;
+    @Column(nullable = false)
+    private boolean power;
 
 }
