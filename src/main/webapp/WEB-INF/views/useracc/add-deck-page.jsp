@@ -21,7 +21,6 @@
                         <ul>
                             <li>karta</li>
                         </ul>
-                        <button>Add</button>
                     </div>
                 </div>
                 <div class="col-6">

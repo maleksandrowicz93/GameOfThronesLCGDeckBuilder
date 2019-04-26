@@ -17,11 +17,11 @@ public class HomePageController {
         this.service = service;
     }
 
-//    @GetMapping("/user")
-//    @ResponseBody
-//    public UserDTO prepareHomePage(Principal principal) {
-//        return service.findUser(principal.getName());
-//    }
+    @GetMapping("/user")
+    @ResponseBody
+    public UserDTO prepareHomePage(Principal principal) {
+        return service.findUser(principal.getName());
+    }
 
     @GetMapping("/")
     public String displayHomePage() {
