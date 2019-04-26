@@ -6,8 +6,6 @@ import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.Registratio
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.dtos.UserDTO;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 public class Converters {
 
@@ -40,7 +38,6 @@ public class Converters {
 
     public static Card convertToCard(CardSetDTO.Card cardDTO) {
         Card card = new Card();
-        card.setCardSet(cardDTO.getCardSet());
         card.setCode(cardDTO.getCode());
         card.setCost(cardDTO.getCost());
         card.setDeckLimit(cardDTO.getDeckLimit());
@@ -49,12 +46,16 @@ public class Converters {
         card.setName(cardDTO.getName());
         card.setStrength(cardDTO.getStrength());
         card.setTraits(cardDTO.getTraits());
-        card.setPlotStats(new PlotStats(cardDTO.getPlotStats().getIncome(), cardDTO.getPlotStats().getInitiative(),
-                cardDTO.getPlotStats().getClaim(), cardDTO.getPlotStats().getReserve()));
-        card.setIcons(new Icons(cardDTO.getIcons().getMilitary(),
-                cardDTO.getIcons().getIntrigue(), cardDTO.getIcons().getPower()));
-        card.setLoyal(cardDTO.getLoyal());
-        card.setUnique(cardDTO.getUnique());
+        if (cardDTO.getPlotStats()!=null) {
+            card.setPlotStats(new PlotStats(cardDTO.getPlotStats().getIncome(), cardDTO.getPlotStats().getInitiative(),
+                    cardDTO.getPlotStats().getClaim(), cardDTO.getPlotStats().getReserve()));
+        }
+        if (cardDTO.getIcons()!=null) {
+            card.setIcons(new Icons(cardDTO.getIcons().getMilitary(),
+                    cardDTO.getIcons().getIntrigue(), cardDTO.getIcons().getPower()));
+        }
+        card.setIsLoyal(cardDTO.getLoyal());
+        card.setIsUnique(cardDTO.getUnique());
         card.setType(cardDTO.getType());
         return card;
     }

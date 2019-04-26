@@ -1,6 +1,7 @@
 package com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.web.controllers.useracc;
 
 import com.github.maleksandrowicz93.gameofthroneslcgdeckbuilder.domain.repositories.CardSetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class SetsController {
 
+    @Autowired
     private CardSetRepository cardSetRepository;
 
     @GetMapping("/sets")
